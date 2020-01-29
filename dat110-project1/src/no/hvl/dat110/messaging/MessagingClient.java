@@ -13,13 +13,13 @@ public class MessagingClient {
 
 	public MessagingClient(String server, int port) {
 		this.server = server;
-		this.port = port;
+		this.port = port; 
 	}
 
 	// connect to messaging server
 	public Connection connect() {
 
-		Socket clientSocket;
+		Socket clientSocket = new Socket(server,port);
 		Connection connection = null;
 
 		// TODO
