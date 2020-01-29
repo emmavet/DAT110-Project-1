@@ -27,6 +27,10 @@ public class MessagingServer {
 	public Connection accept() {
 
 		Connection connection = null;
+		
+		Socket connectionSocket = welcomeSocket.accept();
+		connection = new Connection(connectionSocket);
+		
 
 		// TODO
 		// accept TCP connection on welcome socket and create messaging connection
