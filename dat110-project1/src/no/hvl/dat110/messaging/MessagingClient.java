@@ -33,6 +33,7 @@ public class MessagingClient {
 		if (true) {
 			throw new UnsupportedOperationException(TODO.method());
 		}
+		
 
 		return connection;
 	}

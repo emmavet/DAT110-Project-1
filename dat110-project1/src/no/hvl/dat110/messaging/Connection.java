@@ -49,10 +49,10 @@ public class Connection {
 		
 		
 		
-		/*if (true) {
+		if (true) {
 			throw new RuntimeException("not yet implemented");
 		}
-		*/
+		
 
 		return message;
 

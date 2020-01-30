@@ -9,7 +9,9 @@ public class Message {
 	private byte[] payload;
 
 	public Message(byte[] payload) {
-		this.payload = payload; // TODO: check for length within boundary
+		if (payload.length <= MessageConfig.SEGMENTSIZE) {
+			this.payload = payload;
+		}
 	}
 
 	public Message() {
@@ -17,37 +19,34 @@ public class Message {
 	}
 
 	public byte[] getData() {
-		return this.payload; 
+		return this.payload;
 	}
 
 	public byte[] encapsulate() {
-		
+
 		byte[] encoded = new byte[MessageConfig.SEGMENTSIZE];
 		encoded[0] = (byte) payload.length;
-		
+
 		for (int i = 0; i < payload.length; i++) {
-			encoded[i+1] = payload[i];
+			encoded[i + 1] = payload[i];
 		}
 		
-		
-		/*if (true)
-		   throw new UnsupportedOperationException(TODO.method());
-		   */
+
+		if (true)
+			throw new UnsupportedOperationException(TODO.method());
 
 		return encoded;
-		
+
 	}
 
 	public void decapsulate(byte[] received) {
 
-		
-		
-		byte [] decapsulated = new byte [received[0]];
-	for (int i = 0; i < decapsulated.length; i++) {
-		decapsulated[i] = received[i+1];
-	}
-		
+		byte[] decapsulated = new byte[received[0]];
+		for (int i = 0; i < decapsulated.length; i++) {
+			decapsulated[i] = received[i + 1];
+		}
+
 		throw new UnsupportedOperationException(TODO.method());
-		
+
 	}
 }
