@@ -2,7 +2,7 @@ package no.hvl.dat110.messaging;
 
 import java.util.Arrays;
 
-import no.hvl.dat110.TODO;
+//import no.hvl.dat110.TODO;
 
 public class Message {
 
@@ -32,8 +32,9 @@ public class Message {
 		}
 		
 
-		if (true)
+		/*if (true)
 			throw new UnsupportedOperationException(TODO.method());
+			*/
 
 		return encoded;
 
@@ -46,7 +47,7 @@ public class Message {
 			decapsulated[i] = received[i + 1];
 		}
 
-		throw new UnsupportedOperationException(TODO.method());
-
+		//throw new UnsupportedOperationException(TODO.method());
+		payload = decapsulated;
 	}
 }

@@ -5,7 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-import no.hvl.dat110.TODO;
+//import no.hvl.dat110.TODO;
 
 public class Connection {
 
@@ -32,27 +32,22 @@ public class Connection {
 
 	public void send(Message message) throws IOException {
 
-		
 		outStream.write(message.encapsulate());
-		
-		throw new UnsupportedOperationException(TODO.method());
+
+		// throw new UnsupportedOperationException(TODO.method());
 
 	}
 
 	public Message receive() throws IOException {
 
-		Message message = new Message ();
-		byte[] recvbuf = new byte [MessageConfig.SEGMENTSIZE];
-		inStream.read(recvbuf,0, recvbuf.length);
+		Message message = new Message();
+		byte[] recvbuf = new byte[MessageConfig.SEGMENTSIZE];
+		inStream.read(recvbuf, 0, recvbuf.length);
 		message.decapsulate(recvbuf);
 
-		
-		
-		
-		if (true) {
-			throw new RuntimeException("not yet implemented");
-		}
-		
+		/*
+		 * if (true) { throw new RuntimeException("not yet implemented"); }
+		 */
 
 		return message;
 
