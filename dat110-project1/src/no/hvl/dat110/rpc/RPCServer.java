@@ -1,5 +1,6 @@
 package no.hvl.dat110.rpc;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import no.hvl.dat110.TODO;
@@ -25,7 +26,7 @@ public class RPCServer {
 		services.put((int)RPCCommon.RPIDSTOP,new RPCServerStopImpl());
 	}
 	
-	public void run() {
+	public void run() throws IOException {
 		
 		System.out.println("RPC SERVER RUN - Services: " + services.size());
 		
