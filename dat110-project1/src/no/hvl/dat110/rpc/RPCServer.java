@@ -38,7 +38,7 @@ public class RPCServer {
 		
 		while (!stop) {
 	    
-		   int rpcid;
+		  
 		   
 		   // TODO
 		   // - receive message containing RPC request
@@ -46,6 +46,11 @@ public class RPCServer {
 		   // - lookup the method to be invoked
 		   // - invoke the method
 		   // - send back message containing RPC reply
+		   
+		   Message message = connection.receive();
+		   byte[] received = message.getData();
+		   int rpcid = received[0];
+		   
 			
 		   if (true) {
 			   throw new UnsupportedOperationException(TODO.method());
