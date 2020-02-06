@@ -5,8 +5,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-//import no.hvl.dat110.TODO;
-
 public class Connection {
 
 	private DataOutputStream outStream; // for writing bytes to the underlying TCP connection
@@ -44,10 +42,6 @@ public class Connection {
 		byte[] recvbuf = new byte[MessageConfig.SEGMENTSIZE];
 		inStream.read(recvbuf, 0, recvbuf.length);
 		message.decapsulate(recvbuf);
-
-		/*
-		 * if (true) { throw new RuntimeException("not yet implemented"); }
-		 */
 
 		return message;
 
