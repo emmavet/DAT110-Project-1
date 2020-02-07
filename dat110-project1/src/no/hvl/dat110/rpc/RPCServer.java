@@ -51,6 +51,7 @@ public class RPCServer {
 		   byte[] received = message.getData();
 		   int rpcid = received[0];
 		   
+		   services.put(rpcid, new RPCImpl ());
 			
 		   if (true) {
 			   throw new UnsupportedOperationException(TODO.method());

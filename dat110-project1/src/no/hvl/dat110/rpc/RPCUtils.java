@@ -24,16 +24,13 @@ public class RPCUtils {
 			encoded[i + 1] = en[i];
 		}
 
-		// TODO: marshall RPC identifier and string into byte array
 
 		return encoded;
 	}
 
 	public static String unmarshallString(byte[] data) {
 
-		String decoded = new String(data);
-
-		// TODO: unmarshall String contained in data into decoded
+		String decoded = new String(data, 1, data.length-1);
 		
 		return decoded;
 	}
@@ -79,7 +76,7 @@ public class RPCUtils {
 
 		BigInteger bigInt = BigInteger.valueOf(x);
 		byte[] array = bigInt.toByteArray();
-		byte[] encoded = new byte[array.length + 1];
+		byte[] encoded = new byte[array.length+1];
 		encoded[0] = rpcid;
 		for (int i = 0; i < array.length; i++) {
 			encoded[i + 1] = array[i];
@@ -95,7 +92,7 @@ public class RPCUtils {
 
 		// TODO: unmarshall integer contained in data
 
-		ByteBuffer byteBuffer = ByteBuffer.wrap(data);
+		ByteBuffer byteBuffer = ByteBuffer.wrap(data,1,4);
 		int decoded = byteBuffer.getInt();
 		return decoded;
 
