@@ -73,13 +73,12 @@ public class RPCUtils {
 	}
 
 	public static byte[] marshallInteger(byte rpcid, int x) {
-
-		BigInteger bigInt = BigInteger.valueOf(x);
-		byte[] array = bigInt.toByteArray();
-		byte[] encoded = new byte[array.length+1];
+		byte[] encoded = new byte[5];
+		byte [] e = ByteBuffer.allocate(4).putInt(x).array();
+		
 		encoded[0] = rpcid;
-		for (int i = 0; i < array.length; i++) {
-			encoded[i + 1] = array[i];
+		for (int i = 0; i < e.length; i++) {
+			encoded[i + 1] = e[i];
 		}
 
 		// TODO: marshall RPC identifier and string into byte array
