@@ -5,7 +5,7 @@ import java.io.IOException;
 public class RPCServerStopStub extends RPCStub {
 
 	// client-side (local) implementation of the built-in server stop RPC method
-	public void stop () throws IOException {
+	public void stop () {
 		
 		byte[] request = RPCUtils.marshallVoid(RPCCommon.RPIDSTOP);
 		

@@ -9,7 +9,7 @@ public class Display extends RPCStub {
 
 	private byte RPCID = 1;
 
-	public void write(String message) throws IOException {
+	public void write(String message) {
 
 		// TODO
 		// implement marshalling, call and unmarshalling for write RPC method

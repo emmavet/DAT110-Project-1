@@ -18,7 +18,7 @@ public class RPCClient {
 		remote.register(this);
 	}
 
-	public void connect() throws IOException {
+	public void connect()  {
 
 		// TODO: connect using the underlying messaging layer connection
 		connection = msgclient.connect();
@@ -31,7 +31,7 @@ public class RPCClient {
 		connection.close();
 	}
 
-	public byte[] call(byte[] rpcrequest) throws IOException {
+	public byte[] call(byte[] rpcrequest){
 
 		if (connection == null) {
 			connect();

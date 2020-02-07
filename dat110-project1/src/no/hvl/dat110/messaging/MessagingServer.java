@@ -22,11 +22,17 @@ public class MessagingServer {
 	}
 
 	// accept an incoming connection from a client
-	public Connection accept() throws IOException {
+	public Connection accept(){
 
 		Connection connection = null;
 
-		Socket connectionSocket = welcomeSocket.accept();
+		Socket connectionSocket=null;
+		try {
+			connectionSocket = welcomeSocket.accept();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		connection = new Connection(connectionSocket);
 
 		return connection;

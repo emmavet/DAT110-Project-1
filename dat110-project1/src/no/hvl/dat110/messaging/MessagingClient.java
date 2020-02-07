@@ -15,11 +15,16 @@ public class MessagingClient {
 	}
 
 	// connect to messaging server
-	public Connection connect() throws IOException {
+	public Connection connect() {
 
-		Socket clientSocket;
+		Socket clientSocket = null;
 		Connection connection = null;
-		clientSocket = new Socket(server, port);
+		try {
+			clientSocket = new Socket(server, port);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		connection = new Connection(clientSocket);
 
 		return connection;

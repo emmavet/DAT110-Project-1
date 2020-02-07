@@ -28,19 +28,29 @@ public class Connection {
 		}
 	}
 
-	public void send(Message message) throws IOException {
+	public void send(Message message) {
 
-		outStream.write(message.encapsulate());
+		try {
+			outStream.write(message.encapsulate());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// throw new UnsupportedOperationException(TODO.method());
 
 	}
 
-	public Message receive() throws IOException {
+	public Message receive() {
 
 		Message message = new Message();
 		byte[] recvbuf = new byte[MessageConfig.SEGMENTSIZE];
-		inStream.read(recvbuf, 0, recvbuf.length);
+		try {
+			inStream.read(recvbuf, 0, recvbuf.length);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		message.decapsulate(recvbuf);
 
 		return message;
