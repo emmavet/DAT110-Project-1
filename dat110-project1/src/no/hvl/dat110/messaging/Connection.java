@@ -33,11 +33,8 @@ public class Connection {
 		try {
 			outStream.write(message.encapsulate());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		// throw new UnsupportedOperationException(TODO.method());
 
 	}
 
@@ -48,7 +45,6 @@ public class Connection {
 		try {
 			inStream.read(recvbuf, 0, recvbuf.length);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		message.decapsulate(recvbuf);

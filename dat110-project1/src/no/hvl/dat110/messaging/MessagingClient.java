@@ -21,11 +21,12 @@ public class MessagingClient {
 		Connection connection = null;
 		try {
 			clientSocket = new Socket(server, port);
+			connection = new Connection(clientSocket);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		connection = new Connection(clientSocket);
+		
 
 		return connection;
 	}
